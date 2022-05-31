@@ -1,0 +1,33 @@
+ <!-- This is about to list products in a table -->
+
+ 
+ <h1>List Products</h1> <br>
+
+<div class="input" style="text-align: center;">
+    Enter Product Name: <input type="text" id="pinput" #input> &nbsp;
+    <button class="btn btn-success" (click)="onClick(input.value)" >Add Product</button> &nbsp;
+    <button class="btn btn-secondary" (click)="onListClick()">View List</button> &nbsp;
+    <button class="btn btn-danger" (click)="onReset()">Reset</button>
+</div>
+
+<div class="alert alert-success" role="alert" style="text-align: center;" [hidden]="isHidden">
+    Product added to list successfully!
+</div>
+
+<div class="table table-responsive" [hidden]="tableHide">
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th scope="col">S.No</th>
+            <th scope="col" style="text-align: center;">Product Name</th>
+          </tr>
+    </thead>
+    <tbody *ngFor="let p of products; index as i">
+      <tr>
+        <th scope="row">{{i+1}}.</th>
+        <td style="text-align:center;">{{p}}</td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>
